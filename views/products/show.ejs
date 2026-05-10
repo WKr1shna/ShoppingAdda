@@ -31,9 +31,10 @@
 
 
   <!-- //startablity -->
+
    <fieldset class="starability-coinFlip">
   <legend>First rating:</legend>
-  <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+  <input type="radio" id="no-rate" class="input-no-rate" name="rating" checked value="0" aria-label="No rating." />
   <input type="radio" id="first-rate1" name="rating" value="1" />
   <label for="first-rate1" title="Terrible">1 star</label>
   <input type="radio" id="first-rate2" name="rating" value="2" />
@@ -55,6 +56,12 @@
     <label for="exampleInputEmail1">Leave your Comment :</label>
     <textarea rows="5"  name="comment" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> </textarea>
     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+     <% if(error) { %>
+    <div class="text-danger mt-2">
+        <%= error %>
+    </div>
+
+<% } %>
   </div>
 
   <button type="submit" class="btn btn-primary mt-2">Rate</button>

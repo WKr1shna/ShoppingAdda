@@ -7,8 +7,15 @@ const ProductRoutes=require('./routes/productRoutes')
 const ReviewRoutes=require('./routes/reviewRoutes')
 const path=require('path')
 const methodOverride = require('method-override')
+const {productSchema}=require('./models/validation')
 
-
+module.exports.validateProduct=(req,res,next)=>{
+    const {error} =productSchema.validate(req.body);
+    if(error){
+        return res.send(error.details[0].message);
+    }
+    next()
+}
 mongoose.connect('mongodb://localhost/ShoppingCart')
 .then(()=>{
     console.log('db connected');
